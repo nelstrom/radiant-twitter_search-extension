@@ -1,1 +1,22 @@
-Welcome!
+- include_stylesheet 'admin/twitter_search/search_terms'
+
+%h1 Twitter Searches
+
+%table{ :cellspacing=>0, :cellpadding => 0, :border => 0, :class => "index", :id => "search_terms" }
+
+  %thead
+    %tr
+      %th{ :class => "search_term" } Search Term
+      %th{ :class => "modify" } Modify
+
+  %tbody
+    - @search_terms.each do |term|
+      %tr{ :class => "node level-1" }
+        %td{ :class => "search_term" }
+          -#= image('twitter_search/search_term')
+          = link_to term.query, edit_admin_search_term_url(:id => term.id)
+        %td{ :class => "remove" }
+          = link_to image('remove', :alt => 'Remove search term'), remove_admin_search_term_url(:id => term.id)
+
+-#<p><%= link_to image("links/new-link", :alt => "New link"), {:action => :new} %></p>
+
