@@ -1,7 +1,4 @@
-class Admin::SearchTermsController < ApplicationController
+class Admin::SearchTermsController < Admin::ResourceController
 
-  def index
-    @search_terms = SearchTerm.find(:all)
-  end
 
 end
