@@ -2,6 +2,7 @@ class CreateSearchTerms < ActiveRecord::Migration
   def self.up
     create_table :search_terms do |t|
       t.string :query
+      t.datetime :queried_at
 
       t.timestamps
     end
