@@ -8,12 +8,12 @@ class TwitterSearchExtension < Radiant::Extension
   
   define_routes do |map|
     map.namespace :admin, :member => { :remove => :get } do |admin|
-      admin.resources :twitter_search
+      admin.resources :search_terms
     end
   end
   
   def activate
-    admin.tabs.add "Twitter Searches", "/admin/twitter_search", :after => "Layouts", :visibility => [:all]
+    admin.tabs.add "Twitter Searches", "/admin/search_terms", :after => "Layouts", :visibility => [:all]
   end
   
 end
