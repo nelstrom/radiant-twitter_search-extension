@@ -1,0 +1,13 @@
+- form_for [:admin, @search_term] do |f|
+  .form-area
+    #search_term_form_area
+      %p.title
+        %label{ :for => "search_term_query" } Query
+        = f.text_field "query", :class => 'textbox', :maxlength => 255
+
+
+  %p.buttons
+    = save_model_button(@search_term)
+    or 
+    = link_to "Cancel", {:action => :index}
+
