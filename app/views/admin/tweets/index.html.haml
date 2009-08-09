@@ -1,11 +1,17 @@
 %h1= "Tweets matching #{@search_term.query}"
 
-%table
+%table.index
   %tr
+    %th Author
     %th Text
+    %th Featured
+
+  - @featured.each do |tweet|
+    = render :partial => "tweet_row", :locals => { :tweet => tweet }
+
+  %tr
+    %td{ :colspan => 3, :align => "center" }
+      %strong Unfeatured tweets
 
   - @tweets.each do |tweet|
-    %tr
-      %td
-        = tweet.text
-      
+    = render :partial => "tweet_row", :locals => { :tweet => tweet }

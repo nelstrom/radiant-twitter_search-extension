@@ -1,0 +1,7 @@
+%tr
+  %td
+    = link_to_status_on_twitter(tweet.from_user_name, tweet.from_user_name, tweet.twitter_id)
+  %td
+    = tweet.text
+  %td
+    = check_box_tag "feature_tweet_#{tweet.id}", 'featured[]', tweet.featured
