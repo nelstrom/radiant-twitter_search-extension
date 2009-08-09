@@ -2,6 +2,7 @@
 
 - form_tag( admin_feature_tweets_path ) do
   = submit_tag
+  = hidden_field_tag :search_term_id, @search_term.id
   %table.index
     %tr
       %th Author

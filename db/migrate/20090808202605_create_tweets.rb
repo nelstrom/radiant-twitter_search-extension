@@ -5,7 +5,7 @@ class CreateTweets < ActiveRecord::Migration
       t.string :twitter_id
       t.string :from_user_id
       t.string :from_user_name
-      t.boolean :featured
+      t.boolean :featured, :default => false
 
       t.timestamps
     end
