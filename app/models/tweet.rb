@@ -1,5 +1,8 @@
 class Tweet < ActiveRecord::Base
 
+  has_many :search_term_tweets, :dependant => :destroy
+  has_many :search_terms, :through => :search_term_tweets
+
   ATTR_MAP = {
           #  :from_twitter      => :to_local_database
              :id                => :twitter_id,

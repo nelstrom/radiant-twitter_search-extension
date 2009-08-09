@@ -1,5 +1,7 @@
 class SearchTerm < ActiveRecord::Base
 
+  has_many :search_term_tweets, :dependant => :destroy
+  has_many :tweets, :through => :search_term_tweets
 
   def fetch_all
     count               = 0
