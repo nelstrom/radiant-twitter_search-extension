@@ -11,7 +11,7 @@ class TwitterSearchExtension < Radiant::Extension
   
   define_routes do |map|
     map.namespace :admin, :member => { :remove => :get } do |admin|
-      admin.resources :search_terms, :has_many => :tweets
+      admin.resources :search_terms, :has_many => :tweets, :member => { :fetch_all => :get }
       admin.feature_tweets 'tweets/feature', :controller => 'tweets', :action => 'feature'
     end
   end
