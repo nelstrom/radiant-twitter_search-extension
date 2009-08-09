@@ -5,4 +5,8 @@ class Admin::TweetsController < ApplicationController
     @featured = @search_term.tweets.all(:conditions => ["featured = ?", true])
     @tweets = @search_term.tweets.all(:conditions => ["featured IS NULL"])
   end
+
+  def feature
+    require 'ruby-debug'; debugger
+  end
 end

@@ -1,17 +1,19 @@
 %h1= "Tweets matching #{@search_term.query}"
 
-%table.index
-  %tr
-    %th Author
-    %th Text
-    %th Featured
+- form_tag( admin_feature_tweets_path ) do
+  = submit_tag
+  %table.index
+    %tr
+      %th Author
+      %th Text
+      %th Featured
 
-  - @featured.each do |tweet|
-    = render :partial => "tweet_row", :locals => { :tweet => tweet }
+    - @featured.each do |tweet|
+      = render :partial => "tweet_row", :locals => { :tweet => tweet }
 
-  %tr
-    %td{ :colspan => 3, :align => "center" }
-      %strong Unfeatured tweets
+    %tr
+      %td{ :colspan => 3, :align => "center" }
+        %strong Unfeatured tweets
 
-  - @tweets.each do |tweet|
-    = render :partial => "tweet_row", :locals => { :tweet => tweet }
+    - @tweets.each do |tweet|
+      = render :partial => "tweet_row", :locals => { :tweet => tweet }
