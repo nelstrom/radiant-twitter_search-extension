@@ -13,9 +13,11 @@ class SearchTerm < ActiveRecord::Base
         count_for_current_page = 0
         Twitter::Search.new(self.query).per_page(requests_per_page).page(page_number).each do |s|
           count_for_current_page += 1
-          if exists = Tweet.find_by_twitter_id(s.id)
+          self.update_attribute :queried_at, Time.now
+          if existing = Tweet.find_by_twitter_id(s.id)
             # this status is already in the database.
             # Associate it with the current SearchTerm (if not already) and continue.
+            self.tweets << existing
           else
             status = Tweet.create_from_twitter(s)
             puts status.text
