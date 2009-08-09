@@ -18,7 +18,7 @@
           -#= image('twitter_search/search_term')
           = link_to term.query, edit_admin_search_term_url(:id => term.id)
         %td
-          = link_to(term.tweets.count)
+          = link_to(term.tweets.count, admin_search_term_tweets_path(term))
         %td
           = link_to("Fetch tweets")
         %td{ :class => "remove" }

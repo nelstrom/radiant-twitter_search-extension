@@ -1,0 +1,11 @@
+%h1= "Tweets matching #{@search_term.query}"
+
+%table
+  %tr
+    %th Text
+
+  - @tweets.each do |tweet|
+    %tr
+      %td
+        = tweet.text
+      
