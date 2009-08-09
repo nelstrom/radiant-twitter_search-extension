@@ -1,6 +1,9 @@
 # Uncomment this if you reference any of your controllers in activate
 # require_dependency 'application'
 
+gem 'twitter', '0.4.2'
+require 'twitter'
+
 class TwitterSearchExtension < Radiant::Extension
   version "0.1"
   description "Search Twitter, and save results in local database. Moderate, and publish them on your Radiant website."
