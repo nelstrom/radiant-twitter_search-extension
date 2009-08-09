@@ -7,6 +7,8 @@
   %thead
     %tr
       %th{ :class => "search_term" } Search Term
+      %th{ :class => "tweets" } Tweets
+      %th{ :class => "fetch" } Fetch
       %th{ :class => "modify" } Modify
 
   %tbody
@@ -15,6 +17,10 @@
         %td{ :class => "search_term" }
           -#= image('twitter_search/search_term')
           = link_to term.query, edit_admin_search_term_url(:id => term.id)
+        %td
+          = link_to(term.tweets.count)
+        %td
+          = link_to("Fetch tweets")
         %td{ :class => "remove" }
           = link_to image('remove', :alt => 'Remove search term'), remove_admin_search_term_url(:id => term.id)
 
