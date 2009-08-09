@@ -1,6 +1,6 @@
 class SearchTerm < ActiveRecord::Base
 
-  has_many :search_term_tweets, :dependant => :destroy
+  has_many :search_term_tweets, :dependent => :destroy
   has_many :tweets, :through => :search_term_tweets
 
   def fetch_all
@@ -19,6 +19,7 @@ class SearchTerm < ActiveRecord::Base
           else
             status = Tweet.create_from_twitter(s)
             puts status.text
+            self.tweets << status
             count += 1
           end
         end
